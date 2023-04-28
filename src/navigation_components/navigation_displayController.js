@@ -16,6 +16,7 @@ const displayController = (() => {
 
   const confirmButton = document.createElement("button");
   confirmButton.textContent = "Confirm";
+  confirmButton.classList.add("confirm");
   confirmButton.addEventListener("click", () =>
     PubSub.publish("confirm_button")
   );

@@ -1,3 +1,4 @@
+import "./navigation_style.scss";
 import { clickHandler } from "./navigation_clickHandler";
 import { displayController } from "./navigation_displayController";
 import { user } from "../userModel";

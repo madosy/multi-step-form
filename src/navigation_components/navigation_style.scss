@@ -1,0 +1,73 @@
+.navigation-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+
+  button.back {
+    grid-column: 1;
+    align-self: flex-end;
+    justify-self: start;
+    appearance: none;
+
+    background-color: hsl(231, 100%, 99%);
+    width: min-content;
+    height: min-content;
+    border: none;
+    padding: 15px 0px;
+
+    white-space: nowrap;
+    color: hsl(231, 11%, 63%);
+    font-family: "MyFont";
+    font-size: 16px;
+    font-weight: 600;
+
+    &:hover,
+    &:active {
+      color: hsl(213, 96%, 18%);
+    }
+  }
+  button.next {
+    grid-column: 2;
+    align-self: flex-end;
+    justify-self: end;
+    appearance: none;
+
+    background-color: hsl(213, 96%, 18%);
+    width: 140px;
+    height: min-content;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 25px;
+
+    white-space: nowrap;
+    color: white;
+    font-family: "MyFont";
+    font-size: 16px;
+
+    &:active {
+      background-color: hsl(213, 96%, 35%);
+    }
+  }
+  button.confirm {
+    grid-column: 2;
+    align-self: flex-end;
+    justify-self: end;
+    appearance: none;
+
+    background-color: hsl(243, 100%, 62%);
+    width: 140px;
+    height: min-content;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 25px;
+
+    white-space: nowrap;
+    color: white;
+    font-family: "MyFont";
+    font-size: 16px;
+
+    &:active {
+      background-color: hsl(228, 100%, 84%);
+    }
+  }
+}

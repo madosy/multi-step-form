@@ -19,12 +19,13 @@ body {
   height: 600px;
   padding: 15px;
   border-radius: 15px;
-  background-color: aliceblue;
+  background-color: hsl(231, 100%, 99%);
 
   display: grid;
   grid-template-columns: 274px 1fr;
-  grid-template-rows: 1fr 100px;
-  gap: 15px;
+  grid-template-rows: 1fr min-content;
+  column-gap: 15px;
+  row-gap: 15px;
 
   .side-bar {
     grid-column: 1 / 2;
@@ -35,12 +36,17 @@ body {
     background-color: aquamarine;
     grid-column: 2 / 3;
     grid-row: 1 / 2;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
   }
 
   .navigation-panel {
-    background-color: lavender;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
   }
 }
 
