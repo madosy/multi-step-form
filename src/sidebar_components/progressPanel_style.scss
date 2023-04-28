@@ -1,4 +1,4 @@
-@import url("../myfont.scss");
+@import url("../fonts/myfont.scss");
 
 .side-bar {
   background-image: url(./bg-sidebar-desktop.svg);
@@ -49,7 +49,7 @@
     font-family: "MyFont";
     font-weight: 300;
     color: hsl(228, 100%, 84%);
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .step-title {

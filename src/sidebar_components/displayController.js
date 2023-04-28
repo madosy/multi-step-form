@@ -1,16 +1,22 @@
+import { user } from "../userModel";
 import "./progressPanel_style.scss";
 
-const stepPanelDisplayController = (() => {
+const displayController = (() => {
+  console.log("sidebar display controller");
+
   const stepList = [
     { step: 1, title: "Your Info" },
     { step: 2, title: "Select Plan" },
     { step: 3, title: "Add-Ons" },
     { step: 4, title: "Summary" },
   ];
-  stepList.forEach(renderStep);
-  document.querySelector('div[data-id="3"] > .icon').classList.add("filled"); //delete me later
 
-  function renderStep({ step, title }) {
+  function renderSteps() {
+    stepList.forEach(appendGeneratedStep);
+    highlightCurrentStep();
+  }
+
+  function appendGeneratedStep({ step, title }) {
     const circleIconWithNum = document.createElement("div");
     circleIconWithNum.classList.add("icon");
     circleIconWithNum.innerText = step;
@@ -33,6 +39,18 @@ const stepPanelDisplayController = (() => {
     const sideBar = document.querySelector(".side-bar");
     sideBar.appendChild(stepContainer);
   }
+
+  function highlightCurrentStep() {
+    const currentStep = user.getCurrentStep();
+    const allIcons = document.querySelectorAll(".icon");
+    const currentStepIcon = document.querySelector(
+      `div[data-id="${currentStep}"] > .icon`
+    );
+    allIcons.forEach((icon) => icon.classList.remove("filled"));
+    currentStepIcon.classList.add("filled");
+  }
+
+  return { renderSteps, highlightCurrentStep };
 })();
 
-export default { stepPanelDisplayController };
+export { displayController };
