@@ -7,8 +7,45 @@
     <title>Multi-Step Form Demo</title>
 </head>
 <body>
-    <div class="bold">hi</div>
-    <div class="medium">medium</div>
-    <div class="regular">regular</div>
+    <div class="container">
+        <div class="side-bar"></div>
+        <div class="content-panel">
+            <div class="personal-info content">
+                <h1>Personal info</h1>
+                <p class="description">Please provide your name, email address, and phone number.</p>
+                <form name="personal-info" action="">
+                    <label for="name">
+                        Name
+                        <input id="name" type="text">
+                    </label>
+                    <label for="email">
+                        Email Address
+                        <input type="email" name="email" id="email">
+                    </label>
+                    <label for="phone">
+                        Phone number
+                        <input type="tel" name="phone" id="phone">
+                    </label>
+                </form>
+            </div>
+            <div class="select-plan content">
+                <h1>Select your plan</h1>
+                <p class="description">You have the option of monthly or yearly billing.</p>
+                <div class="plan-module"></div>
+            </div>
+            <div class="add-ons content">
+                <h1>Pick add-ons</h1>
+                <p class="description">Add-ons help enhance your gaming experience.</p>
+                <div class="addon-module"></div>
+            </div>
+            <div class="summary content">
+                <h1>Finishing up</h1>
+                <p class="description">Double-check everything looks OK before confirming.</p>
+                <div class="summary-module"></div>
+            </div>
+        </div>
+        <div class="navigation-panel"></div>
+    </div>
+    
 </body>
 </html>

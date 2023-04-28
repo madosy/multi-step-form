@@ -1,6 +1,3 @@
-import image from "./images/icon-pro.svg";
-import "./style.scss";
+import "./index.scss";
 
-const myImage = document.createElement("img");
-myImage.src = image;
-document.body.appendChild(myImage);
+import stepPanelDisplayController from "./step-panel-components/displayController";
