@@ -13,18 +13,18 @@
             <div class="personal-info content">
                 <h1>Personal info</h1>
                 <p class="description">Please provide your name, email address, and phone number.</p>
-                <form name="personal-info" action="">
+                <form name="personal-info" id="personal-info-form" action="">
                     <label for="name">
                         Name
-                        <input id="name" type="text">
+                        <input id="name" type="text" required>
                     </label>
                     <label for="email">
                         Email Address
-                        <input type="email" name="email" id="email">
+                        <input type="email" name="email" id="email" required>
                     </label>
                     <label for="phone">
                         Phone number
-                        <input type="tel" name="phone" id="phone">
+                        <input type="tel" name="phone" id="phone" required>
                     </label>
                 </form>
             </div>

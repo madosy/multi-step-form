@@ -1,5 +1,6 @@
 import PubSub from "pubsub-js";
 import { user } from "../userModel";
+import { contentModule } from "../content_components/contentModule";
 
 const clickHandler = (() => {
   PubSub.subscribe("back_button", () => {
@@ -9,6 +10,7 @@ const clickHandler = (() => {
   });
 
   PubSub.subscribe("next_button", () => {
+    if (!contentModule.isValid()) return;
     const currentStep = user.getCurrentStep();
     const newStep = currentStep + 1;
     PubSub.publish("change_step", { newStep });

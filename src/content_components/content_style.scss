@@ -1,0 +1,11 @@
+form {
+  label {
+    display: block;
+  }
+  input {
+    display: block;
+    &:valid {
+      background-color: green;
+    }
+  }
+}
