@@ -17,7 +17,6 @@ const clickHandler = (() => {
   });
 
   PubSub.subscribe("change_step", (msg, { newStep }) => {
-    console.log(`step passed to click handler: ${newStep}`);
     user.updateStep(newStep);
     PubSub.publish("data_changed");
   });

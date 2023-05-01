@@ -1,23 +1,18 @@
+import { generateInputWithMemory } from "../generateInputWithMemory";
+
 const generatePersonalInfoForm = () => {
   const personalInfo = document.createElement("form");
 
   const validityField = document.createElement("div");
   validityField.innerText = "hi";
 
-  const nameInput = document.createElement("input");
+  const nameInput = generateInputWithMemory("personal-info.nameInput");
   nameInput.setAttribute("type", "text");
   nameInput.pattern = "[A-Za-z ,.'-]+"; //no regex slashes needed
-
-  let nameInputSessionData = sessionStorage.getItem("personal-info.nameInput");
-  nameInput.value = nameInputSessionData;
-
   nameInput.addEventListener("input", (event) => {
-    sessionStorage.setItem("personal-info.nameInput", nameInput.value);
     if (nameInput.validity.patternMismatch) {
       validityField.innerText = "Please enter valid name";
-      // nameInput.setCustomValidity(
-      //   "Please enter a valid name"
-      // );
+      nameInput.setCustomValidity("Please enter a valid name");
     } else {
       nameInput.setCustomValidity("");
       validityField.innerText = "hi";
@@ -28,12 +23,11 @@ const generatePersonalInfoForm = () => {
   nameLabel.innerText = "Name: ";
   nameLabel.appendChild(nameInput);
 
-  const emailInput = document.createElement("input");
+  const emailInput = generateInputWithMemory("personal-info.emailInput");
   emailInput.setAttribute("type", "email");
-  emailInput.innerText = "";
   emailInput.addEventListener("input", (event) => {
     if (emailInput.validity.typeMismatch) {
-      emailInput.setCustomValidity("Please enter a valid email");
+      emailInput.setCustomValidity("Please enter a valid email!!!!");
     } else {
       emailInput.setCustomValidity("");
     }
@@ -43,7 +37,7 @@ const generatePersonalInfoForm = () => {
   emailLabel.innerText = "Email: ";
   emailLabel.appendChild(emailInput);
 
-  const phoneInput = document.createElement("input");
+  const phoneInput = generateInputWithMemory("personal-info.phoneInput");
   phoneInput.setAttribute("type", "tel");
   phoneInput.pattern = "[0-9]{3}[ -.]{0,1}[0-9]{3}[ -.]{0,1}[0-9]{4}";
   phoneInput.innerText = "";
@@ -66,5 +60,4 @@ const generatePersonalInfoForm = () => {
 
   return personalInfo;
 };
-
 export { generatePersonalInfoForm };

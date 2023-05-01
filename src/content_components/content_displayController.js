@@ -1,7 +1,7 @@
 import { user } from "../userModel";
 import "./content_style.scss";
 
-import { generatePersonalInfoForm } from "./content/personalInfo";
+import { generatePersonalInfoForm } from "./content/personal-info/personalInfo";
 
 const displayController = (() => {
   function render() {

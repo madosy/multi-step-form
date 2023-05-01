@@ -1,5 +1,6 @@
 import { displayController } from "./content_displayController";
 import { clickHandler } from "./content_clickHandler";
+import { validationHandler } from "./content_validationHandler";
 
 const contentModule = (() => {
   sessionStorage.clear();
@@ -11,7 +12,7 @@ const contentModule = (() => {
   }
 
   function isValid() {
-    const validationResult = clickHandler.validateForm();
+    const validationResult = validationHandler.validateForm();
     return validationResult;
   }
 
