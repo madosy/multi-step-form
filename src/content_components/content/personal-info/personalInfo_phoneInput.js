@@ -7,36 +7,39 @@ const phoneInputComponent = () => {
   phoneInput.required = true;
   phoneInput.pattern =
     "(\\+{0,1}\\d{1,2}){0,1}[\\s.\\-]{0,1}[0-9]{3}[\\s.\\-]{0,1}[0-9]{3}[\\s.\\-]{0,1}[0-9]{4}";
-
-  phoneInput.addEventListener("input", (event) => {
-    if (phoneInput.validity.patternMismatch) {
-      phoneInput.setCustomValidity("Please enter in format 123-123-1234");
-    } else {
-      phoneInput.setCustomValidity("");
-    }
-    phoneInput.reportValidity();
-  });
-
+  const phoneInputError = document.createElement("span");
   const phoneLabel = document.createElement("label");
   phoneLabel.innerText = "Phone Number";
   phoneLabel.appendChild(phoneInput);
-  const phoneInputError = document.createElement("span");
   phoneLabel.appendChild(phoneInputError);
+
+  const checkError = () => {
+    phoneLabel.classList.remove("example");
+    if (phoneInput.validity.patternMismatch) {
+      phoneInputError.innerText = "Please match requested format";
+      phoneLabel.classList.add("example");
+    } else if (phoneInput.validity.valueMissing) {
+      phoneInputError.innerText = "This field is required";
+      phoneInput.setCustomValidity("");
+    } else {
+      phoneInputError.innerText = "";
+      phoneInput.setCustomValidity("");
+    }
+  };
+
+  phoneInput.addEventListener("validate", () => {
+    phoneInput.classList.add("viewed");
+    checkError();
+  });
+
+  phoneInput.addEventListener("input", () => {
+    phoneInput.classList.add("viewed");
+    checkError();
+  });
 
   phoneInput.addEventListener("blur", () => {
     phoneInput.classList.add("viewed");
-    if (phoneInput.validity.valueMissing) {
-      phoneInputError.innerText = "This field is required";
-    }
-  });
-  phoneInput.addEventListener("input", () => {
-    if (phoneInput.validity.patternMismatch) {
-      phoneInputError.innerText = "Please match requested format";
-    } else if (phoneInput.validity.valueMissing) {
-      phoneInputError.innerText = "This field is required";
-    } else {
-      phoneInputError.innerText = "";
-    }
+    checkError();
   });
 
   return phoneLabel;

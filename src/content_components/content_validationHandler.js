@@ -12,8 +12,7 @@ const validationHandler = (() => {
       item.dispatchEvent(validate);
     });
 
-    console.log("Active form is: " + activeForm.checkValidity());
-    return activeForm.checkValidity(); //later I will have to use checkvalidity and show validations on my own.
+    return activeForm.checkValidity();
   }
 
   return { validateForm };

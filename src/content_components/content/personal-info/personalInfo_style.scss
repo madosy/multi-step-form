@@ -86,4 +86,34 @@
   input:valid + span {
     display: none;
   }
+
+  label:nth-child(1).example:has(input:focus)::after,
+  label:nth-child(1).example:has(input.viewed:invalid)::after {
+    position: absolute;
+    bottom: -15px;
+    left: 5px;
+    content: "e.g. Stephen King";
+    font-size: 12px;
+    color: hsl(231, 11%, 63%);
+  }
+}
+
+label:nth-child(2).example:has(input:focus)::after,
+label:nth-child(2).example:has(input.viewed:invalid)::after {
+  position: absolute;
+  bottom: -15px;
+  left: 5px;
+  content: "e.g. stephenking@lorem.com";
+  font-size: 12px;
+  color: hsl(231, 11%, 63%);
+}
+
+label:nth-child(3).example:has(input:focus)::after,
+label:nth-child(3).example:has(input.viewed:invalid)::after {
+  position: absolute;
+  bottom: -15px;
+  left: 5px;
+  content: "e.g. +1 123 456 7890 or 123-456-7890";
+  font-size: 12px;
+  color: hsl(231, 11%, 63%);
 }
