@@ -1,6 +1,6 @@
 const validationHandler = (() => {
   function validateForm() {
-    const activeForm = document.querySelector(".content-panel > form");
+    const activeForm = document.querySelector(".content-panel form");
     if (activeForm == null) return true;
 
     // checkRequired();
