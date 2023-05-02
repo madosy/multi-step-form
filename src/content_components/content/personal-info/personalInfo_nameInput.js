@@ -11,14 +11,7 @@ const nameInputComponent = () => {
   nameLabel.appendChild(nameInput);
   nameLabel.appendChild(nameError);
 
-  nameInput.addEventListener("blur", () => {
-    nameInput.classList.add("viewed");
-    if (nameInput.validity.valueMissing) {
-      nameError.innerText = "This field is required";
-    }
-  });
-
-  nameInput.addEventListener("input", () => {
+  const checkError = () => {
     if (nameInput.validity.patternMismatch) {
       nameError.innerText = "Please enter valid name";
     } else if (nameInput.validity.valueMissing) {
@@ -26,7 +19,19 @@ const nameInputComponent = () => {
     } else {
       nameError.innerText = "";
     }
+  };
+
+  nameInput.addEventListener("blur", () => {
+    nameInput.classList.add("viewed");
+    checkError();
   });
+
+  nameInput.addEventListener("input", () => {
+    nameInput.classList.add("viewed");
+    checkError();
+  });
+
+  nameInput.addEventListener("validate", checkError, false);
 
   return nameLabel;
 };

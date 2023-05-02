@@ -3,6 +3,10 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
 
+  button {
+    cursor: pointer;
+  }
+
   button.back {
     grid-column: 1;
     align-self: flex-end;

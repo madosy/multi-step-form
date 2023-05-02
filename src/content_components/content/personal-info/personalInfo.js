@@ -21,7 +21,9 @@ const generatePersonalInfoForm = () => {
   container.appendChild(description);
 
   const myForm = document.createElement("form");
-
+  myForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+  });
   const nameField = nameInputComponent();
   const emailField = emailInputComponent();
   const phoneField = phoneInputComponent();
