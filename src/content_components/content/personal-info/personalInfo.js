@@ -1,7 +1,23 @@
 import { generateInputWithMemory } from "../generateInputWithMemory";
+import "./personalInfo_style.scss";
 
 const generatePersonalInfoForm = () => {
-  const personalInfo = document.createElement("form");
+  const container = document.createElement("div");
+  container.classList.add("personal-info");
+  // container.classList.add("content");
+
+  const header = document.createElement("h1");
+  header.innerText = "Personal info";
+  header.classList.add("header");
+  container.appendChild(header);
+
+  const description = document.createElement("p");
+  description.innerText =
+    "Please provide your name, email address, and phone number.";
+  description.classList.add("description");
+  container.appendChild(description);
+
+  const myForm = document.createElement("form");
 
   const validityField = document.createElement("div");
   validityField.innerText = "hi";
@@ -18,9 +34,8 @@ const generatePersonalInfoForm = () => {
       validityField.innerText = "hi";
     }
   });
-
   const nameLabel = document.createElement("label");
-  nameLabel.innerText = "Name: ";
+  nameLabel.innerText = "Name";
   nameLabel.appendChild(nameInput);
 
   const emailInput = generateInputWithMemory("personal-info.emailInput");
@@ -34,12 +49,17 @@ const generatePersonalInfoForm = () => {
     emailInput.reportValidity();
   });
   const emailLabel = document.createElement("label");
-  emailLabel.innerText = "Email: ";
+  emailLabel.innerText = "Email";
   emailLabel.appendChild(emailInput);
 
   const phoneInput = generateInputWithMemory("personal-info.phoneInput");
   phoneInput.setAttribute("type", "tel");
-  phoneInput.pattern = "[0-9]{3}[ -.]{0,1}[0-9]{3}[ -.]{0,1}[0-9]{4}";
+  phoneInput.setAttribute("placeholder", "e.g.+1 234 567 890");
+
+  // eslint-disable-next-line prefer-regex-literals, no-useless-escape
+  phoneInput.pattern =
+    "(\\+\\d{1,2}){0,1}[\\s.\\-]{0,1}[0-9]{3}[\\s.\\-]{0,1}[0-9]{3}[\\s.\\-]{0,1}[0-9]{4}";
+
   phoneInput.innerText = "";
   phoneInput.addEventListener("input", (event) => {
     if (phoneInput.validity.patternMismatch) {
@@ -50,14 +70,16 @@ const generatePersonalInfoForm = () => {
     phoneInput.reportValidity();
   });
   const phoneLabel = document.createElement("label");
-  phoneLabel.innerText = "Phone: ";
+  phoneLabel.innerText = "Phone";
   phoneLabel.appendChild(phoneInput);
 
-  personalInfo.appendChild(validityField);
-  personalInfo.appendChild(nameLabel);
-  personalInfo.appendChild(emailLabel);
-  personalInfo.appendChild(phoneLabel);
+  myForm.appendChild(validityField);
+  myForm.appendChild(nameLabel);
+  myForm.appendChild(emailLabel);
+  myForm.appendChild(phoneLabel);
 
-  return personalInfo;
+  container.appendChild(myForm);
+
+  return container;
 };
 export { generatePersonalInfoForm };
