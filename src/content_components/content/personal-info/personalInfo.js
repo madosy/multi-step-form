@@ -1,4 +1,4 @@
-import { generateInputWithMemory } from "../generateInputWithMemory";
+import { generateInputWithMemory } from "./generateInputWithMemory";
 import "./personalInfo_style.scss";
 import { phoneInputComponent } from "./personalInfo_phoneInput";
 import { nameInputComponent } from "./personalInfo_nameInput";
@@ -7,7 +7,6 @@ import { emailInputComponent } from "./personalInfo_emailInput";
 const generatePersonalInfoForm = () => {
   const container = document.createElement("div");
   container.classList.add("personal-info");
-  // container.classList.add("content");
 
   const header = document.createElement("h1");
   header.innerText = "Personal info";

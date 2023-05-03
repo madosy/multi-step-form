@@ -1,4 +1,4 @@
-import { generateInputWithMemory } from "../generateInputWithMemory";
+import { generateInputWithMemory } from "./generateInputWithMemory";
 
 const emailInputComponent = () => {
   const emailInput = generateInputWithMemory("personal-info.emailInput");

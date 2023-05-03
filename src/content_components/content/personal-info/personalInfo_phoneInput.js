@@ -1,4 +1,4 @@
-import { generateInputWithMemory } from "../generateInputWithMemory";
+import { generateInputWithMemory } from "./generateInputWithMemory";
 
 const phoneInputComponent = () => {
   const phoneInput = generateInputWithMemory("personal-info.phoneInput");
