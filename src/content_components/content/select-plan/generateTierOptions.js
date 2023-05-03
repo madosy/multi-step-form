@@ -8,10 +8,9 @@ const generateTierOptions = () => {
   const advancedTier = tierFactory("advanced");
   const proTier = tierFactory("pro");
 
-  container
-    .appendChild(arcadeTier)
-    .appendChild(advancedTier)
-    .appendChild(proTier);
+  container.appendChild(arcadeTier);
+  container.appendChild(advancedTier);
+  container.appendChild(proTier);
 
   return container;
 };
