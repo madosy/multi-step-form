@@ -22,15 +22,7 @@ const planPricingModel = (() => {
     return userSelectedPlanPrice;
   }
 
-  function getMonthlyPrice(planName) {
-    return getPlanPrice("monthly", planName);
-  }
-
-  function getYearlyPrice(planName) {
-    return getPlanPrice("yearly", planName);
-  }
-
-  return { getPlanPrice, getMonthlyPrice, getYearlyPrice };
+  return { getPlanPrice };
 })();
 
 export { planPricingModel };
