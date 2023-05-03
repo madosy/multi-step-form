@@ -14,10 +14,25 @@
   }
 
   span.pricing.monthly::after {
-    content: "mon";
+    content: "mo";
   }
 
   span.pricing.yearly::after {
     content: "yr";
+  }
+
+  .select-plan-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px 1fr;
+
+    .tier-container {
+      display: flex;
+      gap: 10px;
+
+      label {
+        background-color: lavender;
+      }
+    }
   }
 }

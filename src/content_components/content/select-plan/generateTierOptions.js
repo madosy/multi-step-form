@@ -1,12 +1,26 @@
 import { planPricingModel } from "./planPricingModel";
+import arcadeIconImageFile from "./images/icon-arcade.svg";
+import advancedIconImageFile from "./images/icon-advanced.svg";
+import proIconImageFile from "./images/icon-pro.svg";
 
 const generateTierOptions = () => {
   const container = document.createElement("div");
   container.classList.add("tier-container");
 
   const arcadeTier = tierFactory("arcade");
+  const arcadeIcon = document.createElement("img");
+  arcadeIcon.src = arcadeIconImageFile;
+  arcadeTier.prepend(arcadeIcon);
+
   const advancedTier = tierFactory("advanced");
+  const advancedIcon = document.createElement("img");
+  advancedIcon.src = advancedIconImageFile;
+  advancedTier.prepend(advancedIcon);
+
   const proTier = tierFactory("pro");
+  const proIcon = document.createElement("img");
+  proIcon.src = proIconImageFile;
+  proTier.prepend(proIcon);
 
   container.appendChild(arcadeTier);
   container.appendChild(advancedTier);
