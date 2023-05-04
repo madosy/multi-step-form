@@ -1,5 +1,7 @@
 .select-plan {
   font-family: "Ubuntu", sans-serif;
+  box-sizing: border-box;
+
   h1 {
     margin: 0;
     color: hsl(213, 96%, 18%);
@@ -13,25 +15,75 @@
     margin-bottom: 40px;
   }
 
-  span.pricing.monthly::after {
-    content: "mo";
-  }
-
-  span.pricing.yearly::after {
-    content: "yr";
-  }
-
   .select-plan-form {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 200px 1fr;
+    grid-template-rows: 1fr 50px;
+    gap: 30px;
+
+    input[type="radio"] {
+      appearance: none;
+      display: none;
+    }
 
     .tier-container {
-      display: flex;
-      gap: 10px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
 
       label {
-        background-color: lavender;
+        display: grid;
+        max-height: 170px;
+        grid-template-rows: 1fr min-content min-content;
+        border: 1px solid hsl(229, 24%, 87%);
+        border-radius: 8px;
+        padding: 15px;
+        row-gap: 7px;
+        cursor: pointer;
+
+        &:has(input:checked) {
+          border: 1px solid hsla(243, 50%, 60%);
+          background-color: hsl(243, 100%, 98%);
+        }
+
+        img {
+          margin-bottom: 40px;
+        }
+
+        span:first-of-type {
+          color: hsl(213, 96%, 18%);
+          text-transform: capitalize;
+          font-weight: 500;
+          font-size: 16px;
+        }
+        span.pricing {
+          color: hsl(231, 11%, 70%);
+          font-size: 14px;
+          font-weight: 400;
+
+          &.yearly::after {
+            content: "2 months free";
+            display: block;
+            margin-top: 8px;
+            color: hsl(213, 96%, 18%);
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    input[type="checkbox"] {
+      position: relative;
+      appearance: none;
+      display: block;
+      background-color: hsl(243, 100%, 97%);
+
+      &::before {
+        display: block;
+        width: 10px;
+        height: 10px;
+        background-color: hsl(213, 96%, 18%);
+        position: absolute;
       }
     }
   }

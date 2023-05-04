@@ -33,13 +33,14 @@ const tierFactory = (planName) => {
   const storedPlanDuration = sessionStorage.getItem("plan-select.duration");
   const storedPlanTier = sessionStorage.getItem("plan-select.tier");
   const price = planPricingModel.getPlanPrice(storedPlanDuration, planName);
+  const perText = () => (storedPlanDuration == "monthly" ? "mo" : "yr");
 
   const label = document.createElement("label");
   label.setAttribute("for", planName);
   label.innerHTML = `
   <input name="plan" type="radio" id="${planName}">
   <span>${planName}</span>
-  <span class="pricing ${storedPlanDuration}">$${price}/</span>`;
+  <span class="pricing ${storedPlanDuration}">$${price}/${perText()}</span>`;
 
   const isPlanSelected = () => storedPlanTier === planName;
 
