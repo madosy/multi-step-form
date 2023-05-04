@@ -80,39 +80,70 @@
       position: relative;
       gap: 20px;
 
-      input[type="checkbox"] {
-        appearance: none;
+      .switch {
         position: relative;
-        display: block;
-        width: 38px;
-        height: 20px;
-        background-color: hsl(213, 96%, 18%);
-        border-radius: 30px;
-      }
+        display: inline-block;
 
-      .toggle-circle {
-        position: relative;
-        width: min-content;
+        .checkbox {
+          appearance: none;
+          position: relative;
+          display: block;
+          width: 40px;
+          height: 20px;
+          background-color: hsl(213, 96%, 18%);
+          border-radius: 30px;
+        }
 
-        transition: all 0.3 ease-in-out;
-
-        &::after {
-          content: "";
+        .slider {
           position: absolute;
+          top: 0;
+          left: 0;
+        }
+
+        .slider::before {
+          content: "";
+          display: block;
           width: 12px;
           height: 12px;
-          border-radius: 12px;
-          background-color: red;
+          border-radius: 20px;
+          background-color: white;
+          position: absolute;
           top: 7px;
           left: 8px;
-          pointer-events: none;
-          transition: all 0.3s ease-in-out;
         }
-      }
 
-      input:checked + .toggle-circle::after {
-        transform: translateX(30px);
-        transition: all 0.3 ease-in-out;
+        .slider::before {
+          animation-duration: 0.3s;
+          animation-name: slidetoLeft;
+          animation-iteration-count: 1;
+          animation-direction: normal;
+        }
+
+        .checkbox:checked + .slider::before {
+          transform: translateX(20px);
+          animation-duration: 0.3s;
+          animation-name: slidetoRight;
+          animation-iteration-count: 1;
+          animation-direction: normal;
+        }
+
+        @keyframes slidetoRight {
+          0% {
+            transform: translateX(0px);
+          }
+          60% {
+            transform: translateX(20px);
+          }
+        }
+
+        @keyframes slidetoLeft {
+          0% {
+            transform: translateX(20px);
+          }
+          60% {
+            transform: translateX(0px);
+          }
+        }
       }
     }
   }

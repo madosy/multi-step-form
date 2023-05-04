@@ -23,7 +23,7 @@ function isPlanSelected() {
 }
 
 function initializePlan() {
-  sessionStorage.setItem("plan-select.duration", "yearly");
+  sessionStorage.setItem("plan-select.duration", "monthly");
   sessionStorage.setItem("plan-select.tier", "arcade");
 }
 

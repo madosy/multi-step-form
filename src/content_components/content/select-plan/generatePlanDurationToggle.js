@@ -5,7 +5,7 @@ const generatePlanDurationToggle = () => {
   label.classList.add("switch");
 
   const checkbox = document.createElement("input");
-  checkbox.classList.add("plan-duration-toggle");
+  checkbox.classList.add("checkbox");
   checkbox.setAttribute("type", "checkbox");
   checkbox.id = "toggle";
 
