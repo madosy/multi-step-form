@@ -1,19 +1,4 @@
-import { addonsPricingModel } from "./addonsPricingModel";
-
-function generateOption() {
-  const planDuration = sessionStorage.getItem("plan-select.duration");
-  const addonsList = addonsPricingModel.getAddonsList();
-  const options = [];
-
-  addonsList.forEach((addOn) => {
-    const addonDOMformat = generateDOMfromAddon(addOn);
-    options.push(addonDOMformat);
-  });
-
-  return options;
-}
-
-function generateDOMfromAddon(addon) {
+function convertAddonToHTML(addon) {
   const planDuration = sessionStorage.getItem("plan-select.duration");
   const perText = () => (planDuration === "monthly" ? "mo" : "yr");
   const addonPrice = addon[planDuration];
@@ -38,4 +23,4 @@ function generateDOMfromAddon(addon) {
   return label;
 }
 
-export { generateOption };
+export { convertAddonToHTML };
