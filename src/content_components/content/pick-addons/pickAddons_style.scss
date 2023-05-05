@@ -1,6 +1,11 @@
+.content-panel {
+  overflow: scroll;
+}
+
 .pick-addons {
   font-family: "Ubuntu", sans-serif;
   box-sizing: border-box;
+  overflow: scroll;
 
   h1 {
     margin: 0;
@@ -13,5 +18,75 @@
     font-weight: 300;
     font-size: 16px;
     margin-bottom: 40px;
+  }
+
+  label {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 2px;
+    align-items: center;
+
+    border: 1px solid hsl(229, 24%, 87%);
+    border-radius: 8px;
+    padding: 20px;
+    padding-right: 23px;
+    cursor: pointer;
+    margin-bottom: 15px;
+
+    &:has(input:checked) {
+      border: 1px solid hsla(243, 50%, 60%);
+      background-color: hsl(243, 100%, 98%);
+    }
+
+    input[type="checkbox"] {
+      grid-column: 1;
+      grid-row: span 2;
+      place-self: center;
+
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 1px solid hsl(229, 24%, 87%);
+      border-radius: 3px;
+
+      &:checked {
+        background-image: url(./icon-checkmark.svg);
+        background-size: 80%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: hsl(243, 100%, 62%);
+        border-color: hsl(243, 100%, 62%);
+      }
+    }
+
+    .addon-name {
+      grid-column: 2;
+      grid-row: 1;
+
+      text-transform: capitalize;
+      color: hsl(213, 96%, 18%);
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .addon-description {
+      grid-column: 2;
+      grid-row: 2;
+
+      color: hsl(231, 11%, 63%);
+      font-size: 14px;
+    }
+
+    .addon-price {
+      grid-column: 3;
+      grid-row: span 2;
+      place-self: center;
+
+      color: hsla(243, 50%, 60%);
+      font-size: 14px;
+      font-weight: 500;
+    }
   }
 }
