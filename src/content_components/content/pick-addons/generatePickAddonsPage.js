@@ -1,7 +1,8 @@
 import "./pickAddons_style.scss";
-import { generateForm } from "./generateForm";
+import { generateAddonsForm } from "./generateForm";
 
 const generatePickAddonsPage = () => {
+  console.log("generating addons page!!!");
   const container = document.createElement("div");
   container.classList.add("pick-addons");
 
@@ -15,7 +16,7 @@ const generatePickAddonsPage = () => {
   description.classList.add("description");
   container.appendChild(description);
 
-  const myForm = generateForm();
+  const myForm = generateAddonsForm();
   container.appendChild(myForm);
 
   return container;

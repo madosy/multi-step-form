@@ -15,12 +15,14 @@ function convertAddonToHTML(addon) {
   `;
 
   const checkbox = label.querySelector("input");
-  checkbox.checked = sessionStorage.getItem(addonID);
+  checkbox.checked = isAddonSelected(addonID);
   checkbox.addEventListener("change", () => {
     sessionStorage.setItem(addonID, checkbox.checked);
   });
 
   return label;
 }
+
+const isAddonSelected = (id) => sessionStorage.getItem(id) === "true";
 
 export { convertAddonToHTML };

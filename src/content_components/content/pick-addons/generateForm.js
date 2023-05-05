@@ -1,6 +1,6 @@
 import { getListOfAddons } from "./getListOfAddons";
 
-const generateForm = () => {
+const generateAddonsForm = () => {
   const form = document.createElement("form");
   form.classList.add("pick-addons-form");
 
@@ -10,4 +10,4 @@ const generateForm = () => {
   return form;
 };
 
-export { generateForm };
+export { generateAddonsForm };

@@ -12,17 +12,16 @@ const displayController = (() => {
     const currentStep = user.getCurrentStep();
 
     contentPanel.innerHTML = "";
-    const personalInfo = generatePersonalInfoForm();
-    const selectPlan = generateSelectPlanPage();
-    const pickAddons = generatePickAddonsPage();
 
     if (currentStep === 1) {
-      contentPanel.appendChild(pickAddons);
-      // contentPanel.appendChild(personalInfo);
+      const personalInfo = generatePersonalInfoForm();
+      contentPanel.appendChild(personalInfo);
     } else if (currentStep === 2) {
+      const selectPlan = generateSelectPlanPage();
       contentPanel.appendChild(selectPlan);
     } else if (currentStep === 3) {
-      contentPanel.innerHTML = "3";
+      const pickAddons = generatePickAddonsPage();
+      contentPanel.appendChild(pickAddons);
     }
   }
 
