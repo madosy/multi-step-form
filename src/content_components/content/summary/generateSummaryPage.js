@@ -1,3 +1,4 @@
+import "./summary_style.scss";
 import { generateSummaryTable } from "./generateSummaryTable";
 
 const generateSummaryPage = () => {
