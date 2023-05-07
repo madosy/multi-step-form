@@ -1,5 +1,4 @@
 import { user } from "../userModel";
-import "./content_style.scss";
 import PubSub from "pubsub-js";
 
 import { generatePersonalInfoForm } from "./content/personal-info/personalInfo";
