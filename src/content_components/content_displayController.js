@@ -5,6 +5,7 @@ import { generatePersonalInfoForm } from "./content/personal-info/personalInfo";
 import { generateSelectPlanPage } from "./content/select-plan/generateSelectPlanPage";
 import { generatePickAddonsPage } from "./content/pick-addons/generatePickAddonsPage";
 import { generateSummaryPage } from "./content/summary/generateSummaryPage";
+import { generateThankYouPage } from "./content/thank-you/generateThankYouPage";
 
 const displayController = (() => {
   function render() {
@@ -26,7 +27,8 @@ const displayController = (() => {
       const summary = generateSummaryPage();
       contentPanel.appendChild(summary);
     } else if (currentStep === 5) {
-      contentPanel.innerHTML = "Thanks for submitting!";
+      const thankYou = generateThankYouPage();
+      contentPanel.appendChild(thankYou);
     }
   }
 
