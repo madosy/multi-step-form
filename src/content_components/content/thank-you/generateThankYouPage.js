@@ -1,7 +1,9 @@
 import thankYouImageFile from "./icon-thank-you.svg";
+import "./thankYou_style.scss";
 
 const generateThankYouPage = () => {
   const thankYou = document.createElement("div");
+  thankYou.classList.add("thank-you");
 
   const thankYouIcon = document.createElement("img");
   thankYouIcon.src = thankYouImageFile;
