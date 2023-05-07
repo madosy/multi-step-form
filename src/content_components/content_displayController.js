@@ -4,6 +4,7 @@ import PubSub from "pubsub-js";
 import { generatePersonalInfoForm } from "./content/personal-info/personalInfo";
 import { generateSelectPlanPage } from "./content/select-plan/generateSelectPlanPage";
 import { generatePickAddonsPage } from "./content/pick-addons/generatePickAddonsPage";
+import { generateSummaryPage } from "./content/summary/generateSummaryPage";
 
 const displayController = (() => {
   function render() {
@@ -12,13 +13,15 @@ const displayController = (() => {
 
     contentPanel.innerHTML = "";
 
-    if (currentStep === 1) {
-      const personalInfo = generatePersonalInfoForm();
-      contentPanel.appendChild(personalInfo);
-    } else if (currentStep === 2) {
+    if (currentStep === 3) {
+      const summary = generateSummaryPage();
+      contentPanel.appendChild(summary);
+      // const personalInfo = generatePersonalInfoForm();
+      // contentPanel.appendChild(personalInfo);
+    } else if (currentStep === 1) {
       const selectPlan = generateSelectPlanPage();
       contentPanel.appendChild(selectPlan);
-    } else if (currentStep === 3) {
+    } else if (currentStep === 2) {
       const pickAddons = generatePickAddonsPage();
       contentPanel.appendChild(pickAddons);
     }
