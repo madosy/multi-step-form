@@ -20,4 +20,9 @@ const clickHandler = (() => {
     user.updateStep(newStep);
     PubSub.publish("data_changed");
   });
+
+  PubSub.subscribe("jump_to_step_2", () => {
+    const newStep = 2;
+    PubSub.publish("change_step", { newStep });
+  });
 })();

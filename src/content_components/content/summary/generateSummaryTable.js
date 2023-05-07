@@ -1,5 +1,6 @@
 import { planPricingModel } from "../select-plan/planPricingModel";
 import { addonsPricingModel } from "../pick-addons/addonsPricingModel";
+import PubSub from "pubsub-js";
 
 const generateSummaryTable = () => {
   const summaryTable = document.createElement("div");
@@ -20,6 +21,8 @@ const generateSummaryTable = () => {
   <div class="plan-name">${planTier} (${planDuration})</div>
   <a>Change</a>
   <div class="plan-price">$${planCost}/${perText()}</div>`;
+  const changeLink = planSummary.querySelector("a");
+  changeLink.addEventListener("click", () => PubSub.publish("jump_to_step_2"));
   userSelection.appendChild(planSummary);
 
   const allAvailableAddons = addonsPricingModel
