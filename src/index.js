@@ -9,3 +9,8 @@ PubSub.subscribe("data_changed", () => {
   navigationModule.update();
   contentModule.update();
 });
+
+PubSub.subscribe("form_confirmation", () => {
+  navigationModule.update();
+  contentModule.update();
+});

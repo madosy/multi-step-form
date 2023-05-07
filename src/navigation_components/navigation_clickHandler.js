@@ -16,6 +16,11 @@ const clickHandler = (() => {
     PubSub.publish("change_step", { newStep });
   });
 
+  PubSub.subscribe("confirm_button", () => {
+    user.updateStep(user.getLastStep());
+    PubSub.publish("form_confirmation");
+  });
+
   PubSub.subscribe("change_step", (msg, { newStep }) => {
     user.updateStep(newStep);
     PubSub.publish("data_changed");

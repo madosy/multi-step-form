@@ -13,17 +13,20 @@ const displayController = (() => {
 
     contentPanel.innerHTML = "";
 
-    if (currentStep === 3) {
-      const summary = generateSummaryPage();
-      contentPanel.appendChild(summary);
-      // const personalInfo = generatePersonalInfoForm();
-      // contentPanel.appendChild(personalInfo);
-    } else if (currentStep === 1) {
+    if (currentStep === 1) {
+      const personalInfo = generatePersonalInfoForm();
+      contentPanel.appendChild(personalInfo);
+    } else if (currentStep === 2) {
       const selectPlan = generateSelectPlanPage();
       contentPanel.appendChild(selectPlan);
-    } else if (currentStep === 2) {
+    } else if (currentStep === 3) {
       const pickAddons = generatePickAddonsPage();
       contentPanel.appendChild(pickAddons);
+    } else if (currentStep === 4) {
+      const summary = generateSummaryPage();
+      contentPanel.appendChild(summary);
+    } else if (currentStep === 5) {
+      contentPanel.innerHTML = "Thanks for submitting!";
     }
   }
 

@@ -2,8 +2,6 @@ import PubSub from "pubsub-js";
 import { user } from "../userModel";
 
 const displayController = (() => {
-  console.log("navi display controller");
-
   const backButton = document.createElement("button");
   backButton.classList.add("back");
   backButton.textContent = "Go Back";
@@ -32,8 +30,10 @@ const displayController = (() => {
 
     if (currentStep === 1) {
       navigationPanel.querySelector("button.back").remove();
-    } else if (currentStep === lastStep) {
+    } else if (currentStep === lastStep - 1) {
       navigationPanel.querySelector("button.next").replaceWith(confirmButton);
+    } else if (currentStep === lastStep) {
+      navigationPanel.remove();
     }
   }
   render();

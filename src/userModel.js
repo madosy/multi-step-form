@@ -1,6 +1,6 @@
 const user = (() => {
   let currentStep = 1;
-  let lastStep = 4;
+  let lastStep = 5;
 
   function getCurrentStep() {
     return currentStep;
