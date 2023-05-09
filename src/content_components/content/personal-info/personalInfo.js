@@ -22,6 +22,7 @@ const generatePersonalInfoForm = () => {
   const myForm = document.createElement("form");
   myForm.addEventListener("submit", (event) => {
     event.preventDefault();
+    PubSub.publish("next_button");
   });
   const nameField = nameInputComponent();
   const emailField = emailInputComponent();
