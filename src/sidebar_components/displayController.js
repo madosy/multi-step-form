@@ -1,5 +1,5 @@
 import { user } from "../userModel";
-import "./progressPanel_style.scss";
+import "./sidebar_style.scss";
 
 const displayController = (() => {
   console.log("sidebar display controller");

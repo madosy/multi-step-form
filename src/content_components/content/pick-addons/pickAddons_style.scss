@@ -1,11 +1,6 @@
-.content-panel {
-  overflow: scroll;
-}
-
 .pick-addons {
   font-family: "Ubuntu", sans-serif;
   box-sizing: border-box;
-  overflow: scroll;
 
   h1 {
     margin: 0;
@@ -32,6 +27,10 @@
     border-radius: 8px;
     padding: 20px;
     padding-right: 23px;
+    @media screen and (max-width: 950px) {
+      padding: 15px;
+      column-gap: 10px;
+    }
     cursor: pointer;
     margin-bottom: 15px;
 
@@ -69,6 +68,11 @@
       color: hsl(213, 96%, 18%);
       font-size: 16px;
       font-weight: 600;
+
+      @media screen and (max-width: 950px) {
+        font-size: 15px;
+        font-weight: 500;
+      }
     }
 
     .addon-description {
@@ -77,6 +81,10 @@
 
       color: hsl(231, 11%, 63%);
       font-size: 14px;
+      @media screen and (max-width: 950px) {
+        font-size: 12px;
+        font-weight: 300;
+      }
     }
 
     .addon-price {
@@ -87,6 +95,11 @@
       color: hsla(243, 50%, 60%);
       font-size: 14px;
       font-weight: 500;
+
+      @media screen and (max-width: 950px) {
+        font-size: 13px;
+        // font-weight: 400;
+      }
     }
   }
 }

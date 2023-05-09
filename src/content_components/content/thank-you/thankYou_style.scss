@@ -9,6 +9,9 @@
   gap: 15px;
 
   margin-bottom: 40px;
+  @media screen and (max-width: 950px) {
+    margin-bottom: 0;
+  }
 
   img {
     margin-bottom: 10px;

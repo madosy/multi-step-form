@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-color: gray;
+  background-color: #e3eaf4;
 
   min-height: -moz-available;
   min-height: -webkit-fill-available;
@@ -11,6 +11,15 @@ body {
 
   display: grid;
   place-content: center;
+  position: relative;
+  margin: 0;
+
+  @media screen and (max-width: 950px) {
+    background-image: url(./sidebar_components/bg-sidebar-mobile.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+  }
 }
 
 .container {
@@ -20,6 +29,7 @@ body {
   padding: 15px;
   border-radius: 15px;
   background-color: hsl(231, 100%, 99%);
+  position: relative;
 
   display: grid;
   grid-template-columns: 274px 1fr;
@@ -27,9 +37,30 @@ body {
   column-gap: 15px;
   row-gap: 15px;
 
+  @media screen and (max-width: 950px) {
+    width: -webkit-fill-available;
+    height: 100vh;
+
+    margin: 0;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px min-content 80px;
+    overflow-y: auto;
+    gap: 0;
+  }
+
   .side-bar {
     grid-column: 1 / 2;
     grid-row: 1 / 3;
+
+    @media screen and (max-width: 950px) {
+      grid-column: 1;
+      grid-row: 1;
+      place-self: center;
+    }
   }
 
   .content-panel {
@@ -38,6 +69,26 @@ body {
     margin-top: 40px;
     margin-left: 60px;
     margin-right: 60px;
+
+    @media screen and (max-width: 950px) {
+      grid-column: 1;
+      grid-row: 2;
+      background-color: hsl(231, 100%, 99%);
+
+      width: -webkit-fill-available;
+      margin: 0;
+      padding: 30px 20px;
+      border-radius: 10px;
+
+      h1 {
+        font-size: 25px;
+      }
+      p.description {
+        // font-size: 16px;
+        margin-bottom: 25px;
+        line-height: 1.5rem;
+      }
+    }
   }
 
   .navigation-panel {
@@ -46,6 +97,20 @@ body {
     margin-bottom: 20px;
     margin-left: 60px;
     margin-right: 60px;
+
+    @media screen and (max-width: 950px) {
+      margin: 0;
+      padding: 0;
+
+      width: -webkit-fill-available;
+
+      position: fixed;
+      bottom: 0;
+      left: 0;
+
+      background-color: white;
+      padding: 15px;
+    }
   }
 }
 

@@ -30,6 +30,10 @@
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 20px;
+      @media screen and (max-width: 950px) {
+        display: flex;
+        flex-direction: column;
+      }
 
       label {
         display: grid;
@@ -40,6 +44,15 @@
         padding: 15px;
         row-gap: 7px;
         cursor: pointer;
+        @media screen and (max-width: 950px) {
+          grid-template-columns: min-content 1fr;
+          grid-template-rows: 1rem;
+          column-gap: 15px;
+
+          span {
+            grid-column-start: 2;
+          }
+        }
 
         &:has(input:checked) {
           border: 1px solid hsla(243, 50%, 60%);
